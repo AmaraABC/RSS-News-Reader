@@ -43,19 +43,16 @@ Pour réaliser cette application, plusieurs dépendances ont été installées :
         - python -m venv .venv
   
   3 - Activer cet environnement virtuel avec les commandes suivantes :
-    # Sur Mac ou Linux :
 
-        - source .venv/bin/activate
-    
-    # Sur Windows :
-
-        - source .venv\Scripts\activate
+        - source .venv/bin/activate   # Sur Mac ou Linux
+        - source .venv\Scripts\activate   # Sur Windows
 
   4 - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
+
         - pip install -r /backend/requirements.txt
   
   5 - Se rendre dans le dossier [**backend**](/backend/) puis créer un fichier **.env** à la racine de ce dossier, à partir du fichier [**.env.example**](/backend/.env.example) :
-  
+
         - cd /backend
         - cp .env.example .env
 
