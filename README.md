@@ -45,7 +45,6 @@ Pour réaliser cette application, plusieurs dépendances ont été installées :
   3 - Activer cet environnement virtuel avec les commandes suivantes :
 
         source .venv/bin/activate   # Sur Mac ou Linux
-
         source .venv\Scripts\activate   # Sur Windows
 
   4 - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
