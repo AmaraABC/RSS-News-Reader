@@ -5,6 +5,11 @@ Une application qui rassemble et affiche des flux RSS à partir de différentes 
 
 Date de création du dossier : 14/09/2025
 
+## Composition du projet
+Puisque le projet possède une partie Front-end et une partie Back-end, ce dernier est composé de deux dossiers correspondant à chacune de ces parties :
+- ;
+- ;
+
 ## Dépendances installées
 Pour réaliser cette application, plusieurs dépendances ont été installées :
 - Au niveau Back-end :
