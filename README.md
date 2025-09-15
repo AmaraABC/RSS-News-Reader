@@ -36,24 +36,25 @@ Pour réaliser cette application, plusieurs dépendances ont été installées :
 ## Configuration et installation du projet
   1 - Sur le terminal, cloner le projet à partir de son lien GitHub :
 
-        - git clone https://github.com/AmaraABC/RSS-News-Reader.git
+        git clone https://github.com/AmaraABC/RSS-News-Reader.git
 
   2 - Une fois le projet cloné, à la racine du projet, créer un environnement virtuel avec l'instruction suivante :
 
-        - python -m venv .venv
+        python -m venv .venv
   
   3 - Activer cet environnement virtuel avec les commandes suivantes :
 
-        - source .venv/bin/activate   # Sur Mac ou Linux
-        - source .venv\Scripts\activate   # Sur Windows
+        source .venv/bin/activate   # Sur Mac ou Linux
+
+        source .venv\Scripts\activate   # Sur Windows
 
   4 - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
 
-        - pip install -r /backend/requirements.txt
+        pip install -r /backend/requirements.txt
   
   5 - Se rendre dans le dossier [**backend**](/backend/) puis créer un fichier **.env** à la racine de ce dossier, à partir du fichier [**.env.example**](/backend/.env.example) :
 
-        - cd /backend
-        - cp .env.example .env
+        cd /backend
+        cp .env.example .env
 
   6 - Remplacer les champs attendus dans le nouveau .env
