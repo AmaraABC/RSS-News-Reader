@@ -14,9 +14,9 @@ Pour réaliser cette application, plusieurs dépendances ont été installées :
 
 ## Fonctionnalités de l'application
 Plusieurs fonctionnalités sont présentes dans l'application :
-### - Côté serveur (Back-end) avec Django :
+### Côté serveur (Back-end) avec Django :
   - 
 
-### - Côté client / utilisateur (Front-end) avec React :
+### Côté client / utilisateur (Front-end) avec React :
   -   
 
