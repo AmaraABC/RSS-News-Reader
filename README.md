@@ -41,10 +41,13 @@ Pour réaliser cette application, plusieurs dépendances ont été installées :
         - python -m venv .venv
   
   3 - Activer cet environnement virtuel avec les commandes suivantes :
+    
     - Sur Mac ou Linux :
+
         - source .venv/bin/activate
     
     - Sur Windows :
+    
         - source .venv\Scripts\activate
 
   4 - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
