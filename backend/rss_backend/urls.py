@@ -15,8 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from feeds.views import FeedViewSet
 
+# Définition des endpoints de l'application
+router = DefaultRouter() # URLs CRUD de l'application
+router.register(r'feeds', FeedViewSet, basename='feed') # Création de chaque méthode du CRUD
+
+# Liste des routes générées par le router
 urlpatterns = [
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
