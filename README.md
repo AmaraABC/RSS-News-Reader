@@ -12,7 +12,8 @@ Puisque le projet possède une partie Front-end et une partie Back-end, ce derni
 - Le dossier [**backend**](backend) ;
 - Le dossier [**frontend**](frontend) (pour le moment indisponible) ;
 
-Le dossier [**backend**](backend) comporte toute la logique pour le bon fonctionnement du projet côté serveur. Dans ce dossier, on retrouve :
+### Côté serveur (Back-end)
+Le dossier [**backend**](backend) comporte toute la logique fondamentale pour le bon fonctionnement du projet côté serveur. Dans ce dossier, on retrouve :
 - Un fichier [**manage.py**](backend/manage.py), script pour éxécuter les commandes Django ;
 - Un dossier nommé [**feeds**](backend/feeds/) qui gère les flux RSS et les articles. Cette gestion est permise via plusieurs fichiers et dossiers, notamment :
   - [**models.py**](backend/feeds/models.py) et le dossier [**migrations**](backend/feeds/migrations/) pour la définition et la migration des tables vers la base de données ;     
@@ -21,21 +22,26 @@ Le dossier [**backend**](backend) comporte toute la logique pour le bon fonction
 
 - Un dossier [**rss_backend**](backend/rss_backend/) qui représente l'élément centrale du projet, en fournissant les configurations nécessaires au fonctionnement du projet, essentiellemnt avec les fichiers [**settings.py**](backend/rss_backend/settings.py) et [**urls.py**](backend/rss_backend/urls.py).
 
+### Côté client / utilisateur (Front-end)
+Le dossier [**frontend**](frontend) comporte tous les éléments visibles par l'utilisateur, et avec lesquels celui-ci peut intéragir. Dans ce dossier, on retrouve :
+- Un dossier 
+
 ## Fonctionnalités de l'application
-Plusieurs fonctionnalités sont présentes dans l'application :
-### Côté serveur (Back-end) avec Django :
-  - 
+Sur cette application, l'utilisateur peut :
+- Ajouter des nouveaux flux RSS et les voir ;
+- Supprimer ses flux RSS ;
+- Consulter les articles d'un flux spécifique.
 
-### Côté client / utilisateur (Front-end) avec React :
-  -   
-
-
-## Dépendances et bibliothèques installées
+## Dépendances, librairies et bibliothèques installées
 Pour réaliser cette application, plusieurs dépendances ont été installées, comme :
 ### - Au niveau **Back-end** :
   - ***django-cors-headers***, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
   - ***djangorestframework***, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
   - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
+
+### - Au niveau **Front-end** :
+  - ***axios***, une librairie JavaScript utile pour faire des requêtes HTTP depuis mon frontend vers mon backend ;
+  - ***react-router-dom***, une autre librairie JavaScript qui gère les routes côté client (Front-end) ;
 
 ## Configuration et installation du projet
 Tout d'abord, s'assurer que PostgreSQL et Python sont installés sur votre machine. Si cela n'est pas le cas, se rendre sur la [page d'installation de PostgreSQL](https://www.postgresql.org/download/) et de [Python](https://www.python.org/downloads/) et suivre les instructions.
