@@ -14,8 +14,12 @@ Puisque le projet possède une partie Front-end et une partie Back-end, ce derni
 
 Le dossier [**backend**](backend) comporte toute la logique pour le bon fonctionnement du projet côté serveur. Dans ce dossier, on retrouve :
 - Un fichier [**manage.py**](backend/manage.py), script pour éxécuter les commandes Django ;
-- Un dossier nommé [**feeds**](backend/feeds/) qui gère les flux RSS et les articles. Cette gestion est permise via plusieurs fichiers et dossiers, notamment [**models.py**](backend/feeds/models.py) et le dossier [**migrations**](backend/feeds/migrations/) pour la définition puis la migration des tables vers la base de données, ainsi que [**utils.py**](backend/feeds/utils.py) pour la définition de fonctions utilitaires spécifiques aux flux RSS ;
-- Un dossier [**rss_backend**](backend/rss_backend/) qui représente l'élément centrale du projet, en fournissant les configurations nécessaires au fonctionnement du projet ([**settings.py**](backend/rss_backend/settings.py)).
+- Un dossier nommé [**feeds**](backend/feeds/) qui gère les flux RSS et les articles. Cette gestion est permise via plusieurs fichiers et dossiers, notamment :
+      - [**models.py**](backend/feeds/models.py) et le dossier [**migrations**](backend/feeds/migrations/) pour la définition puis la migration des tables vers la base de données ;
+      - [**utils.py**](backend/feeds/utils.py) pour la définition de fonctions utilitaires spécifiques aux flux RSS ;
+      - [**serializers.py**](backend/feeds/serializers.py) et [**views.py**](backend/feeds/views.py) pour la conversion des données sous format JSON pour les transmettre côté client (Front-end), la reception des requêtes API et le renvoie d'une réponse côté client (Front-end) ;
+
+- Un dossier [**rss_backend**](backend/rss_backend/) qui représente l'élément centrale du projet, en fournissant les configurations nécessaires au fonctionnement du projet, essentiellemnt avec les fichiers [**settings.py**](backend/rss_backend/settings.py) et [**urls.py**](backend/rss_backend/urls.py).
 
 ## Fonctionnalités de l'application
 Plusieurs fonctionnalités sont présentes dans l'application :
@@ -27,11 +31,11 @@ Plusieurs fonctionnalités sont présentes dans l'application :
 
 
 ## Dépendances et bibliothèques installées
-Pour réaliser cette application, plusieurs dépendances ont été installées :
+Pour réaliser cette application, plusieurs dépendances ont été installées, comme :
 - Au niveau Back-end :
-  - *django-cors-headers*, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
-  - *djangorestframework*, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
-  - *feedparser*, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
+  - ***django-cors-headers***, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
+  - ***djangorestframework***, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
+  - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
 
 ## Configuration et installation du projet
   1 - Sur le terminal, cloner le projet à partir de son lien GitHub :
