@@ -23,16 +23,16 @@ Le dossier [**backend**](backend) comporte toute la logique pour le bon fonction
 
 ## Fonctionnalités de l'application
 Plusieurs fonctionnalités sont présentes dans l'application :
-#### Côté serveur (Back-end) avec Django :
+### Côté serveur (Back-end) avec Django :
   - 
 
-#### Côté client / utilisateur (Front-end) avec React :
+### Côté client / utilisateur (Front-end) avec React :
   -   
 
 
 ## Dépendances et bibliothèques installées
 Pour réaliser cette application, plusieurs dépendances ont été installées, comme :
-- ### Au niveau **Back-end** :
+### - Au niveau **Back-end** :
   - ***django-cors-headers***, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
   - ***djangorestframework***, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
   - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
