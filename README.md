@@ -38,6 +38,8 @@ Pour réaliser cette application, plusieurs dépendances ont été installées, 
   - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
 
 ## Configuration et installation du projet
+Tout d'abord, s'assurer que PostgreSQL et Python sont installés sur votre machine. Si cela n'est pas le cas, se rendre sur la [page d'installation de PostgreSQL](https://www.postgresql.org/download/) et de [Python](https://www.python.org/downloads/) et suivre les instructions.
+
   1 - Sur le terminal, cloner le projet à partir de son lien GitHub :
 
         git clone https://github.com/AmaraABC/RSS-News-Reader.git
@@ -60,4 +62,19 @@ Pour réaliser cette application, plusieurs dépendances ont été installées, 
         cd /backend
         cp .env.example .env
 
-  6 - Remplacer les champs attendus dans le nouveau .env
+  7 - Ouvrir PostgreSQL / pdAdmin puis créer une base de données et un utilisateur à l'aide du fichier [**rss_feed.sql**](/backend/rss_feed.sql). Les champs en commentaires sont à remplacer par le nom de la base de données et de l'utilisateur de votre choix.
+
+  8 - Remplacer les champs attendus dans le nouveau .env (en fonction de ce que vous avez renseigné pour la base de données et l'utilisateur pour PostgreSQL). Pour la clé secrète, l'utilisateur doit la générer à l'aide de cette commande :
+        
+        python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+  Il doit copier cette clé dans le fichier .env., pour la variable ***SECRET_KEY***.
+
+  9 - Effectuer les migrations vers la base de données :
+        
+        python manage.py makemigrations
+        python manage.py migrate
+
+  10 - Dans le même dossier, lancer le serveur Django à l'aide de cette commande :
+
+        python manage.py runserver
