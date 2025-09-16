@@ -32,7 +32,7 @@ Plusieurs fonctionnalités sont présentes dans l'application :
 
 ## Dépendances et bibliothèques installées
 Pour réaliser cette application, plusieurs dépendances ont été installées, comme :
-- Au niveau Back-end :
+- ### Au niveau **Back-end** :
   - ***django-cors-headers***, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
   - ***djangorestframework***, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
   - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
@@ -68,7 +68,7 @@ Tout d'abord, s'assurer que PostgreSQL et Python sont installés sur votre machi
         
         python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
-  Il doit copier cette clé dans le fichier .env., pour la variable ***SECRET_KEY***.
+  Il doit copier cette clé dans le fichier .env, pour la variable ***SECRET_KEY***.
 
   9 - Effectuer les migrations vers la base de données :
         
