@@ -26,5 +26,4 @@ router.register(r'feeds', FeedViewSet, basename='feed') # Création de chaque m�
 # Liste des routes générées par le router
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('admin/', admin.site.urls),
 ]

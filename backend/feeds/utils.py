@@ -6,11 +6,11 @@ from .models import FeedItem
 def _parse_entry_date(entry):
     # Pour une date de publication
     if entry.get('published_parsed'):
-        return datetime.datetime.fromtimestamp(time.mktime(entry.published_parsed), tz=timezone.utc)
+        return datetime.datetime.fromtimestamp(time.mktime(entry.published_parsed), tz=datetime.timezone.utc)
     
     # Pour une date de mise à jour, si la date de publication est inexistante
     if entry.get('updated_parsed'):
-        return datetime.datetime.fromtimestamp(time.mktime(entry.updated_parsed), tz=timezone.utc)
+        return datetime.datetime.fromtimestamp(time.mktime(entry.updated_parsed), tz=datetime.timezone.utc)
     
     # Pour aucun des cas précédents
     return None

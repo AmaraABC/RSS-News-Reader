@@ -5,7 +5,9 @@ from rest_framework.response import Response
 from .models import Feed, FeedItem
 from .serializers import FeedSerializer, FeedItemSerializer
 from .utils import fetch_feed
+import logging
 
+logger = logging.getLogger(__name__)
 # Create your views here.
 
 # API: CRUD de l'application
@@ -22,8 +24,9 @@ class FeedViewSet(viewsets.ModelViewSet):
             created, skipped = fetch_feed(feed) # Télécharger le flux en question, parser ses articles et les passer dans la BDD
             return Response({'created': created, 'skipped': skipped}) # Nombre d'articles ignorés ou crées
         except Exception as e:
-            return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST) # Exception levée en cas de BAD REQUEST
-        
+            logger.error(f"Erreur lors du fetch du feed {feed.id}: {e}", exc_info=True)
+            return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    
     # Méthode "GET": Afficher tous les articles d'un flux sélectionné. 
     # Cette action correspond à la page "détails" d'un flux RSS.
     @action(detail=True, methods=['get'])
