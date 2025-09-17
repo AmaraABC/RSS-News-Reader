@@ -46,41 +46,65 @@ Pour réaliser cette application, plusieurs dépendances ont été installées, 
 ## Configuration et installation du projet
 Tout d'abord, s'assurer que PostgreSQL et Python sont installés sur votre machine. Si cela n'est pas le cas, se rendre sur la [page d'installation de PostgreSQL](https://www.postgresql.org/download/) et de [Python](https://www.python.org/downloads/) et suivre les instructions.
 
-  1 - Sur le terminal, cloner le projet à partir de son lien GitHub :
+Node.js est également requis pour faire fonctionner le projet. Il faut donc [l'installer](https://nodejs.org/en/download) si ce n'est pas fait.
+
+  **1** - Sur le terminal, cloner le projet à partir de son lien GitHub :
 
         git clone https://github.com/AmaraABC/RSS-News-Reader.git
 
-  2 - Une fois le projet cloné, à la racine du projet, créer un environnement virtuel avec l'instruction suivante :
+  **2** - Une fois le projet cloné, à la racine du projet, créer un environnement virtuel avec l'instruction suivante :
 
         python -m venv .venv
   
-  3 - Activer cet environnement virtuel avec les commandes suivantes :
+  **3** - Activer cet environnement virtuel avec les commandes suivantes :
 
         source .venv/bin/activate   # Sur Mac ou Linux
         source .venv\Scripts\activate   # Sur Windows
 
-  4 - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
+  **4** - Installer les dépendances nécessaires au projet à l'aide du fichier [**requirements.txt**](backend/requirements.txt) :
 
         pip install -r /backend/requirements.txt
   
-  5 - Se rendre dans le dossier [**backend**](/backend/) puis créer un fichier **.env** à la racine de ce dossier, à partir du fichier [**.env.example**](/backend/.env.example) :
+  **5** - Se rendre dans le dossier [**backend**](/backend/) puis créer un fichier **.env** à la racine de ce dossier, à partir du fichier [**.env.example**](/backend/.env.example) :
 
         cd /backend
         cp .env.example .env
 
-  7 - Ouvrir PostgreSQL / pdAdmin puis créer une base de données et un utilisateur à l'aide du fichier [**rss_feed.sql**](/backend/rss_feed.sql). Les champs en commentaires sont à remplacer par le nom de la base de données et de l'utilisateur de votre choix.
+  **6** - Ouvrir PostgreSQL / pdAdmin puis créer une base de données et un utilisateur à l'aide du fichier [**rss_feed.sql**](/backend/rss_feed.sql). Les champs en commentaires sont à remplacer par le nom de la base de données et de l'utilisateur de votre choix.
 
-  8 - Remplacer les champs attendus dans le nouveau .env (en fonction de ce que vous avez renseigné pour la base de données et l'utilisateur pour PostgreSQL). Pour la clé secrète, l'utilisateur doit la générer à l'aide de cette commande :
+  **7** - Remplacer les champs attendus dans le nouveau .env (en fonction de ce que vous avez renseigné pour la base de données et l'utilisateur pour PostgreSQL). Pour la clé secrète, l'utilisateur doit la générer à l'aide de cette commande :
         
         python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 
   Il doit copier cette clé dans le fichier .env, pour la variable ***SECRET_KEY***.
 
-  9 - Effectuer les migrations vers la base de données :
+  **8** - Effectuer les migrations vers la base de données :
         
         python manage.py makemigrations
         python manage.py migrate
 
-  10 - Dans le même dossier, lancer le serveur Django à l'aide de cette commande :
+  **9** - Dans le même dossier, lancer le serveur Django à l'aide de cette commande :
 
         python manage.py runserver
+  
+  **10** - Se rendre désormais dans la partie Front-end du projet :
+
+        cd ..
+        cd frontend
+
+  **11** - Installer les librairies nécessaires au projet :
+
+        npm install
+
+  **12** - Démarrer le serveur de développement :
+
+        npm run dev
+
+## Améliorations futures / envisagées
+- L'authentification de l'utilisateur : l'utilisateur sera capable de s'inscrire, se connecter et s'abonner à ses flux préférés ;
+- Permettre à l'utilisateur de marquer des articles comme étant ses favories ou comme étant lus ;
+- Avertir l'utilisateur des nouveaux articles publiés récemment ;
+- La possibilité de filtrer et rechercher certains articles d'un flux ;
+- La sauvegarde des préférences de l'utilisateur et la personnalisation des flux par l'utilisateur ;
+- La conteneurisation et le déploiement de l'application avec Docker, et fournir une série d'instructions claires avec un pipeline CI/CD ;
+- La pagination des pages (déjà configuriée mais à mettre en place) ;
