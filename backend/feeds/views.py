@@ -2,12 +2,10 @@ from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .models import Feed, FeedItem
 from .serializers import FeedSerializer, FeedItemSerializer
 from .utils import fetch_feed
-import logging
+from .models import Feed, FeedItem
 
-logger = logging.getLogger(__name__)
 # Create your views here.
 
 # API: CRUD de l'application
