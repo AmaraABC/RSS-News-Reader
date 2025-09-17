@@ -24,7 +24,14 @@ Le dossier [**backend**](backend) comporte toute la logique fondamentale pour le
 
 ### Côté client / utilisateur (Front-end)
 Le dossier [**frontend**](frontend) comporte tous les éléments visibles par l'utilisateur, et avec lesquels celui-ci peut intéragir. Dans ce dossier, on retrouve :
-- Un dossier 
+- Un dossier [**source**](/frontend/src/) qui regroupe l'ensemble des pages et composants de l'application. Parmi ces fichiers, nous avons :
+  - Un composant [**Header.jsx**](/frontend/src/components/Header.jsx) qui est l'entête de page de l'application ;
+  - Un dossier [**pages**](/frontend/src/pages/) comprenant la page des flux [**FeedsList.jsx**](/frontend/src/pages/FeedsList.jsx) et la page des articles de chaque flux [**FeedDetails.jsx**](/frontend/src/pages/FeedDetails.jsx) ;
+  - Un fichier [**api.js**](/frontend/src/api.js) qui communique les appels API réalisés par le frontend au backend ;
+  - Un fichier [**index.css**](/frontend/src/index.css) pour la stylisation des pages ;
+  - Un fichier [**main.jsx**](/frontend/src/main.jsx) qui va transmettre les composants et pages au fichier [**index.html**](/frontend/index.html) ;
+
+- Il y a également le fichier [**package.json**](/frontend/package.json) qui recense les configurations nécessaires pour le projet au niveau frontend.
 
 ## Fonctionnalités de l'application
 Sur cette application, l'utilisateur peut :
@@ -107,4 +114,4 @@ Node.js est également requis pour faire fonctionner le projet. Il faut donc [l'
 - La possibilité de filtrer et rechercher certains articles d'un flux ;
 - La sauvegarde des préférences de l'utilisateur et la personnalisation des flux par l'utilisateur ;
 - La conteneurisation et le déploiement de l'application avec Docker, et fournir une série d'instructions claires avec un pipeline CI/CD ;
-- La pagination des pages (déjà configuriée mais à mettre en place) ;
+- La pagination des pages (déjà configuriée mais à mettre en place).
