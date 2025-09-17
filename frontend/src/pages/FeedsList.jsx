@@ -48,24 +48,24 @@ export default function FeedsList() {
     // Renvoie de la page HTML concernant la liste des flux RSS
     return (
         <div>
-            <h1 className="rss-list-h1">Liste de mes flux RSS</h1>
+            <h1 className="rss-list-h1">Liste des flux RSS sauvegardés</h1>
             <form onSubmit={handleAdd} className='rss-add-form'>
-                <input className='rss-searchbar' value={url} onChange={e => setUrl(e.target.value)} placeholder="Saisissez l'URL d'un flux RSS" />
+                <input className='rss-input' value={url} onChange={e => setUrl(e.target.value)} placeholder="Saisissez l'URL d'un flux RSS" />
                 <button className='rss-add-btn' type='submit' disabled={loading || !url.trim()}>Ajouter</button>
             </form>
             {loading ? <p>Chargement…</p> : (
-                <ul className="rss-list">
+                <div className="rss-list">
                     {feeds.map(f => (
-                        <li key={f.id} className="rss-card">
+                        <div key={f.id} className="rss-card">
                             <span className="rss-card-title">
                                 <Link to={`/feeds/${f.id}`}>{f.title || f.url}</Link>
                             </span>
                             <button className="rss-delete-btn" onClick={() => handleDelete(f.id)}>
                                 Supprimer
                             </button>
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
             {error && <div className="rss-error">{error}</div>}
         </div>
