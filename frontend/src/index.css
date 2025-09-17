@@ -1,0 +1,300 @@
+/* Code générale,  Header + Footer */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+header {
+  background-color: #535bf2;
+  padding: .75rem 1.5rem 1.5rem 1.5rem;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  background-color: #535bf2;
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  color: white;
+}
+
+a {
+  color: #535bf2;
+}
+
+a:hover {
+  color: #646cff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+}
+
+/* Stylisation de la page qui affiche les flux RSS */
+.rss-list-h1 {
+  text-align: center;
+  padding-block: 1.25rem;
+  font-size: clamp(1.5rem, 4.5vw, 2.75rem);
+}
+
+.rss-add-form {
+  display: flex;
+  gap: 1rem;
+  margin-block: 1rem;
+  justify-content: center;
+  width: 95%;
+  margin-inline: auto;
+}
+
+.rss-input {
+  flex: 1;
+  padding: clamp(0.4em, 1.4vw, 0.5em);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border: 1px solid #535bf2;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.rss-input:focus {
+  border-color: #646cff;
+}
+
+.rss-add-btn {
+  background: #535bf2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: clamp(0.5em, 2vw, 0.8em) clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rss-add-btn:disabled {
+  background: #b3b3b3;
+  cursor: not-allowed;
+}
+
+.rss-add-btn:hover:not(:disabled) {
+  background: #646cff;
+}
+
+.rss-list {
+  width: 95%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+@media (max-width: 700px) {
+  .rss-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rss-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  min-width: 250px;
+  flex: 1 1 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rss-card-title {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.rss-delete-btn {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: clamp(0.4em, 2vw, 0.7em) clamp(0.8em, 4vw, 1.2em);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rss-delete-btn:hover {
+  background: #d9363e;
+}
+
+.rss-error {
+  background: #ffeded;
+  color: #d9363e;
+  border: 1px solid #ff4d4f;
+  border-radius: 8px;
+  padding: 0.75em 1.25em;
+  margin: 1em auto;
+  width: fit-content;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  box-shadow: 0 2px 8px rgba(255, 77, 79, 0.08);
+  text-align: center;
+}
+
+/* Stylisation de la page qui affiche les détails d'un flux RSS */
+.feed-details-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(83, 91, 242, 0.08);
+}
+
+.feed-refresh-btn {
+  background: linear-gradient(90deg, #535bf2 60%, #646cff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: clamp(0.5em, 2vw, 0.8em) clamp(1em, 4vw, 1.5em);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 2px 8px rgba(83, 91, 242, 0.12);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.feed-refresh-btn:hover,
+.feed-refresh-btn:focus {
+  background: linear-gradient(90deg, #646cff 60%, #535bf2 100%);
+  box-shadow: 0 4px 12px rgba(83, 91, 242, 0.18);
+}
+
+.feed-loading {
+  text-align: center;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #535bf2;
+  margin: 2rem 0;
+}
+
+.feed-items-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .feed-items-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feed-item-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: 1fr;
+  background: #f6f8ff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(83, 91, 242, 0.07);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  gap: 0.5em;
+  min-height: 200px;
+  grid-row: span 3;
+}
+
+.feed-item-title {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  margin-bottom: 0.25em;
+  transition: color 0.2s;
+}
+
+.feed-item-title:hover {
+  text-decoration: underline;
+}
+
+.feed-item-desc {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: #213547;
+  margin-bottom: 0.5em;
+}
+
+.feed-item-date {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  color: #888;
+  text-align: end;
+  grid-row: 3;
+}
+
+.feed-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feed-pagination button {
+  background: linear-gradient(90deg, #535bf2 60%, #646cff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: clamp(0.4em, 1.75vw, 0.7em) clamp(.8em, 3.25vw, 1.25em);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(83, 91, 242, 0.12);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.feed-pagination button:disabled {
+  background: #b3b3b3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.feed-pagination button:not(:disabled):hover,
+.feed-pagination button:not(:disabled):focus {
+  background: linear-gradient(90deg, #646cff 60%, #535bf2 100%);
+}
+
+.feed-pagination span {
+  font-size: clamp(.7rem, 1.6vw, 1rem);
+  font-weight: 500;
+  color: #535bf2;
+}
