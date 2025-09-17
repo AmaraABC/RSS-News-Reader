@@ -113,5 +113,4 @@ Node.js est également requis pour faire fonctionner le projet. Il faut donc [l'
 - Avertir l'utilisateur des nouveaux articles publiés récemment ;
 - La possibilité de filtrer et rechercher certains articles d'un flux ;
 - La sauvegarde des préférences de l'utilisateur et la personnalisation des flux par l'utilisateur ;
-- La conteneurisation et le déploiement de l'application avec Docker, et fournir une série d'instructions claires avec un pipeline CI/CD ;
-- La pagination des pages (déjà configuriée mais à mettre en place).
+- La conteneurisation et le déploiement de l'application avec Docker, et fournir une série d'instructions claires avec un pipeline CI/CD.
