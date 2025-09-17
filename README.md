@@ -41,12 +41,12 @@ Sur cette application, l'utilisateur peut :
 
 ## Dépendances, librairies et bibliothèques installées
 Pour réaliser cette application, plusieurs dépendances ont été installées, comme :
-### - Au niveau **Back-end** :
+### Au niveau **Back-end** :
   - ***django-cors-headers***, une dépendance qui va définir quels protocoles, domaines ou ports vont accéder aux APIs de l'application ;
   - ***djangorestframework***, une bibliothèque qui rend le framework Django plus performant, notamment en me facilitant la création d'APIs ;
   - ***feedparser***, une bibliothèque qui va analyser, parser et télécharger les flux RSS de l'application, à partir d'un URL.
 
-### - Au niveau **Front-end** :
+### Au niveau **Front-end** :
   - ***axios***, une librairie JavaScript utile pour faire des requêtes HTTP depuis mon frontend vers mon backend ;
   - ***react-router-dom***, une autre librairie JavaScript qui gère les routes côté client (Front-end) ;
 
