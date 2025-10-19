@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getFeeds, addFeed, deleteFeed } from '../api';
 
-// Fonction concernant le listing de chaque flux RSS
+// Page concernant le listing de chaque flux RSS
 export default function FeedsList() {
     const [feeds, setFeeds] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ export default function FeedsList() {
         setLoading(true);
         try {
             const res = await getFeeds(); // Appel de l'API
-            setFeeds(res.data.results || res.data); // Affichage des flux en prenant en compte la pagination
+            setFeeds(res.data.results || res.data);
         } catch (e) {
             setError('Erreur lors du chargement');
         } finally { setLoading(false); } // Chargement des flux interrompu
@@ -27,7 +27,7 @@ export default function FeedsList() {
         e.preventDefault(); // Empêche la page de recharger
         try {
             await addFeed(url); // Appel de l'API
-            setUrl(''); // Reset de l'URL
+            setUrl('');
             await load();
         } catch (err) {
             setError(err.response?.data?.detail || 'Erreur lors de l\'ajout du flux');
