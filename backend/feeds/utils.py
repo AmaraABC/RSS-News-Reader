@@ -18,35 +18,35 @@ def _parse_entry_date(entry):
 # Fonction concernant le fonctionnement d'un flux RSS
 def fetch_feed(feed):
     """
-    Télécharge et parse un feed RSS ;
+    Télécharge et parse un flux RSS ;
     Analyse d'un objet représentant un feed via la dépendance feedparser ;
     Création de nouvelles entrées pour des nouveaux articles du flux (non existants pour le moment) dans la base de données ;
     Mise à jour de certaines infos du flux RSS ;
     """
     parsed = feedparser.parse(feed.url)
     if parsed.bozo:
-        # Exception levée si erreur de parsing du feed
+        # Exception levée si erreur de parsing du flux
         raise Exception(getattr(parsed, 'bozo_exception', 'Feed parse error'))
 
-    # Si nécessaire, une mise à jour des infos du feed
+    # Si nécessaire, une mise à jour des infos du flux
     feed.title = parsed.feed.get('title', feed.title) or feed.title
     feed.description = parsed.feed.get('description', feed.description) or feed.description
 
     created = 0 # Compteur qui indique le nombre d'articles de flux crées
     skipped = 0 # Compteur qui indique le nombre d'articles ignorés
 
-    # Parcours du feed pour essayer de déterminer les articles crées ou ignorés
+    # Parcours du flux pour essayer de déterminer les articles crées ou ignorés
     for entry in parsed.entries:
         guid = entry.get('id') or entry.get('guid') or entry.get('link')
 
         if not guid:
-            # Sauter les entrées sans identifiants uniques
+            # Saut des entrées sans identifiants uniques
             continue
 
         # Vérification de l'existance d'un article dans la BDD en fonction de son flux et son indentifiant
         if FeedItem.objects.filter(feed=feed, guid=guid).exists():
             skipped += 1
-            # Ignorer l'article si c'est le cas (existant)
+            # Ignorance de l'article si c'est le cas (existant dans la BDD)
             continue
 
         # Création d'un nouvelle article du flux si inexistant auparavant
@@ -61,6 +61,6 @@ def fetch_feed(feed):
         )
         created += 1
 
-    feed.last_fetched = timezone.now() # Mise à jour de la date de récupération du feed
-    feed.save(update_fields=['last_fetched','title','description']) # Sauvegarde des changements (titre, description et la dernière date de récupération du feed)
-    return created, skipped # Renvoie le nombre d'articles ignorés ou crées sous forme de tuples
+    feed.last_fetched = timezone.now() # Mise à jour du flux
+    feed.save(update_fields=['last_fetched','title','description']) # Sauvegarde des changements (titre, description et la dernière date de mise à jour du flux)
+    return created, skipped
