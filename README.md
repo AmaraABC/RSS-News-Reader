@@ -75,7 +75,7 @@ Tout d'abord, s'assurer que PostgreSQL et Python sont installés sur votre machi
 
   **4** - Installer les dépendances nécessaires au projet à la racine du dossier [`/backend`](/backend), à l'aide de cette commande (et du fichier [`requirements.txt`](/backend/requirements.txt)) :
 
-      pip install -r /backend/requirements.txt
+      pip install -r requirements.txt
   
   **5** - Créer un fichier `.env` à la racine du dossier [`/backend`](/backend), à partir du fichier [`.env.example`](/backend/.env.example) :
 
