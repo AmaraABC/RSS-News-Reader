@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -20,7 +19,7 @@ class FeedViewSet(viewsets.ModelViewSet):
         feed = self.get_object()
         try:
             created, skipped = fetch_feed(feed) # Télécharger le flux en question, parser ses articles et les passer dans la BDD
-            return Response({'created': created, 'skipped': skipped}) # Nombre d'articles ignorés ou crées
+            return Response({'created': created, 'skipped': skipped})
         except Exception as e:
             logger.error(f"Erreur lors du fetch du feed {feed.id}: {e}", exc_info=True)
             return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)

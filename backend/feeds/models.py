@@ -3,7 +3,7 @@ from django.utils import timezone
 
 # Create your models here.
 
-# Classe concernant un flux RSS
+# Flux RSS (table Feed)
 class Feed(models.Model):
     url = models.URLField(unique=True) # L'URL du flux
     title = models.CharField(max_length=255, blank=True) # Son titre
@@ -16,7 +16,7 @@ class Feed(models.Model):
     def __str__(self):
         return self.title or self.url
 
-# Classe dédiée aux articles d'un flux
+# Articles d'un flux RSS (table FeedItem)
 class FeedItem(models.Model):
     feed = models.ForeignKey(Feed, related_name='items', on_delete=models.CASCADE)
     guid = models.CharField(max_length=500) # Identifiant attribué par un flux RSS à un article
@@ -32,4 +32,4 @@ class FeedItem(models.Model):
         ordering = ['-published'] 
 
     def __str__(self):
-        return self.title # Renvoie le titre d'un article du flux
+        return self.title
