@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFeedItems, fetchFeed } from '../api';
 
-// Fonction concernant les articles des flux RSS
+// Page concernant les articles des flux RSS
 export default function FeedDetail() {
     const { id } = useParams();
     const [items, setItems] = useState([]);
